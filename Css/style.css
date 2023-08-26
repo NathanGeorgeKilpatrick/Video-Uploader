@@ -1,0 +1,462 @@
+:root {
+    --mainbg : hsla(0, 0%, 100%, 1);
+    --secondbg : hsla(0, 0%, 0%, 1);
+    --btncolour : hsla(0, 10%, 80%, 1);
+    --btnhover : hsla(0, 0%, 50%, 1);
+    --btntxt : hsla(0, 10%, 30%, 1);
+    --btnhovertxt : hsla(0, 0%, 100%, 1);
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    background-image: url(body.jpg);
+    background-repeat: repeat;
+}
+.container {
+    width: 80%;
+    margin: auto;
+}
+div, ul, li, section{
+    margin: 0;
+    padding: 0;
+}
+
+/*Index Page*/
+/*Header*/
+header {
+    margin: 0;
+    padding: 0;
+}
+.backgroundimg {
+    background-image:
+    linear-gradient(to right, hsla(0, 100%, 100%, 1), hsla(0, 100%, 100%, 1), hsla(0, 100%, 100%, 0)),
+    url('header.jpg');
+    background-repeat: repeat-x;
+    background-position: right;
+    height: 300px;
+    width: 100%;
+    border: 2px solid black;
+}
+h1 {
+    float: left;
+    position: relative;
+    top: 120px;
+    left: 200px
+}
+
+/*Naviation and Dropdown*/
+nav {
+    background: var(--mainbg);
+    padding: 0;
+    margin: 0;
+}
+nav ul ul {
+    display: none;
+}
+nav ul li:hover>ul {
+    display: block;
+    z-index: 2;
+    width: 300px;
+}
+.hoverright:hover {
+    background: var(--btnhover);
+    padding: 0px;
+}
+nav ul{
+    box-shadow: 0px 0px 9px rgba (0,0,0.15);
+    padding: 0 0px;
+    margin: auto;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+    border: 2px solid black;
+    width: 100%;
+}
+nav ul:after {
+    content = "";
+    clear: both;
+    display: block;
+    z-index: 2;
+}
+nav ul li { 
+    background: var(--btncolour);
+    float: left;
+    margin: 0 10px;
+    border: 2px black;
+    border-style: none solid none solid;
+    z-index: 1;
+}
+nav ul li:hover {
+    background: var(--btnhover);
+}
+nav ul li:hover a {
+    color: var(--btnhovertxt);
+}
+nav ul li a {
+    display: block;
+    padding: 2vw 2.5vw;
+    color: var(--btntxt);
+    text-decoration: none;
+}
+nav ul ul {
+    margin: 0;
+    padding: 0px;
+    position: absolute;
+    top: 100%;
+    background: white;
+}
+nav ul ul li {
+    float:  left;
+    margin: 0;
+    border: 1px solid #6b727c;
+    position: relative;
+}
+nav ul ul li a {
+    padding: 15px 40px;
+    color: var(--btnhovertxt);
+    border: none;
+}
+nav ul li a:hover {
+    background: var(--btnhover);
+}
+
+/*Search boxes*/
+.search {
+    float: right;
+    margin: 25px 0px;
+    padding: 0;
+}
+.searchbtn {
+    float: right;
+    margin: 25px;
+    padding: 0;
+}
+
+/*Carousel Videos*/
+.videocategory {
+    background: white;
+    width: 100%;
+    height: 350px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    white-space: nowrap;  
+}
+.slide {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+.categorytitle {
+    background: white;
+    margin: 0;
+    padding: 0 50px;
+    font-size: 25px;
+    font-weight: 600
+}
+.slide img {
+    height: 300px;
+}
+
+footer p{
+    background: hsla(0, 0%, 70%, 1);
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+/*Category page*/
+/*Grid layout*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px 80px;
+    margin: 0;
+    grid-gap: 80px;
+    background: white;
+}
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.grid-item ul {
+    display: none;
+    padding: 10px 4.5vw;
+    margin: auto;
+}
+.grid-item:hover>ul {
+    position: absolute;
+    background: grey;
+    margin: 0;
+    border: 2px solid black;
+    border-radius: 3px;
+    display: block;
+    height: 70px;
+    width: 21vw;
+}
+.grid-item li {
+    list-style: none;
+}
+.grid-item p {
+    text-decoration: none;
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+/*Video Selector Page*/
+.videoselection_container {
+    height: 1000px;
+    background: white;
+}
+
+.Vido-grid-item {
+    
+}
+
+.Vido-grid-item a img{
+    height: 100px;
+    width: 100px;
+}
+
+/*Video Player Page*/
+/*Title*/
+.videoplayer {
+    background: white;
+    padding: 20px;
+}
+.title {
+    width: 70%;
+    margin: auto;
+    text-align-last: center;
+    border-style: solid solid none solid;
+    padding: 10px 0 0 0;
+}
+
+/*Video*/
+.videoborder {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 0;
+}
+.video {
+    height: 500px;
+    width: 800px;
+    padding: 0;
+    margin: 0;
+}
+
+/*Comments*/
+.comments {
+    border: 3px solid black;
+    float: right;
+    height: 506px;
+    width: 240px
+}
+.textcomments {
+    position: relative;
+    top: 460px;
+    height: 40px;
+    width: 195px;
+    padding: 0;
+    margin: 0;
+}
+.fa-paper-plane {
+    position: relative;
+    top: 459.5px;
+    border: 0.5px solid grey;
+    border-style: solid solid solid none;
+    padding: 11px;
+    margin: 0;
+    float: right;
+}
+
+/*Likes and info*/
+.videolikesandinfo {
+    border: 2px solid grey;
+    padding: 10px;
+    margin: 0;
+}
+.fa-thumbs-up {
+    font-size: 30px;
+    margin: 0 0 0 40px
+}
+.fa-thumbs-down {
+    position: relative;
+    top:7px;
+    margin: 0 0 10px 30px;
+    font-size: 31px;
+    transform: rotateY(180deg);
+}
+.accountupload {
+    float: right;
+    margin: 6px 50px 0 0;
+}
+.views {
+    float: right;
+    margin: 6px 130px 0 0;
+}
+.videodescription {
+    border: 2px solid black;
+    margin: 10px 0 0;
+    text-align: center;
+    height: 200px;
+}
+.videodescription p {
+    width: 60%;
+    margin: auto;
+}
+
+/*Account page*/
+.accountbackground {
+    padding: 10px 60px;
+    background: white;
+}
+.accountsborder {
+    border: 3px solid black;
+}
+
+/*Tabs*/
+.tablink {
+    color: hsla(234, 91%, 50%, 1);
+    background: hsla(0, 100%, 100%, 1);
+    text-decoration: underline;
+    float: left;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 1rem;
+    width: 25%;
+    border: 2px black;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 5px 0 0 0;
+}
+.tabcontent {
+    color: black;
+    background: hsla(0, 20%, 95%, 1);
+    display: none;
+    padding: 50px 150px;
+    text-align: left; 
+}
+.tablink:hover {
+  background: hsla(0, 3%, 90%, 1);
+}
+
+/*Tab form account info*/
+h5 {
+    position: relative;
+    top: 30px;
+    left: 20px;
+    width: 200px;
+}
+form {
+    margin: 50px
+}
+input {
+    position: relative;
+}
+#descrip{
+    left: 47px;
+    padding-bottom: 100px
+}
+#password {
+    left: 61px;
+}
+#email {
+    left: 89px
+}
+#name {
+    left: 84px
+}
+.signup, .login {
+    top: 20px;
+    left: 260px
+}
+#staylogin {
+    left: 23px
+}
+
+/*Account Video Grid*/
+.account-grid {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+}
+.Acc-grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/*Video Uploader*/
+#vidname {
+    left: 38px;
+}
+#vidtags {
+    margin-left: 49px;
+}
+.margin {
+    margin: 0 0 30px 0;
+}
+select{
+    width: 200px;
+}
+
+/*Admin*/
+.searchdb {
+    float: right;
+}
+.searchdbbtn {
+    float: right;
+    margin: 0 0 0 5px;
+}
+
+/*Video Delete form*/
+#deletevidname {
+    margin-left: 38px;
+    margin-top: 10px;
+}
+#deleteviddescript {
+    padding-bottom :100px;
+}
+#uploadedby {
+    margin-left: 35px;
+    margin-top: 5px;
+}
+#reason {
+    margin-left: 75px;
+    width: 300px;
+    padding-bottom: 100px;
+}
+.viddelete {
+    float: right;
+    margin: 10px 20px 0 0;
+}
+
+/*Account Delete form*/
+#deleteaccoutname {
+    margin-left: 46px;
+    margin-top: 10px;
+}
+#deleteaccemail {
+    margin-left: 23px;
+}

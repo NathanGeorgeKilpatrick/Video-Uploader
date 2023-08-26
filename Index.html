@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTube</title>
+    <link rel="stylesheet" href="Css/style.css">
+    <script src="https://kit.fontawesome.com/87eadedc73.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <iframe src="Indexvideo.php" style="display: none;"></iframe>
+    <header>
+        <div class="container">
+        <h1>GoTube</h1>
+        <div class="backgroundimg"> <!--https://idazuwaika.wordpress.com/tag/mogo/-->
+        </div>
+        <nav>
+            <ul>
+                <li><a class="current" href="Index.html">Home</a>
+                    <ul>
+                        <li><a href="#">Newest</a></li>
+                        <li><a href="#">Top Rated</a></li>
+                    </ul>
+                </li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li class = hoverright><a href="Account.html">Account</a></li>
+            
+                <button class="searchbtn" onclick="myFunction()">Search</button>
+                <input class="search" type="search" id="mySearch" placeholder="Search for something..">  <!--https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_search_get-->
+            </ul>
+        </nav>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <p class="categorytitle">Fun Stuff</p>
+            <div id="chill" class="videocategory">
+                
+            </div>
+            <p class="categorytitle">Pro Stuff</p>
+            <div id="pro" class="videocategory">
+                
+            </div>
+            <p class="categorytitle">Learning Stuff</p>
+            <div id="learn" class="videocategory">
+                
+            </div>
+        </div>
+        
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2020</p>
+        </div>
+    </footer>
+    <script>  
+        window.onload = function createvidlink() {
+            var cookie = document.cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) => ({...accumulator, [key.trim()]: decodeURIComponent(value) }), {}); 
+            
+            var arr = JSON.parse(cookie.funvidarray);
+            var arr1 = JSON.parse(cookie.providarray);
+            var arr2 = JSON.parse(cookie.learnvidarray);
+            
+            for (var i=0; i < cookie.numbofchill; i++)
+                {
+                    document.getElementById("chill").innerHTML += '<div class="slide"><a href=getselectedvideodetails.php onclick="savevideoid('+ arr[i] +')"><img src="Thumbnail/httpswww.freeimages.com-photo-island-1378590.jpg"></a></div>';
+                }
+            for (var i=0; i < cookie.numbofpro; i++)
+                {
+                    document.getElementById("pro").innerHTML += '<div class="slide"><a href=getselectedvideodetails.php onclick="savevideoid('+ arr1[i] +')"><img src="Thumbnail/httpswww.freeimages.com-photo-island-1378590.jpg"></a></div>';
+                }
+            for (var i=0; i < cookie.numboflearn; i++)
+                {
+                    document.getElementById("learn").innerHTML += '<div class="slide"><a href=getselectedvideodetails.php onclick="savevideoid('+ arr2[i] +')"><img src="Thumbnail/httpswww.freeimages.com-photo-island-1378590.jpg"></a></div>';
+                }
+        }
+        
+        function savevideoid(vidID) {
+            document.cookie = "WatchVidid=" + vidID;
+            
+            var data = new FormData();
+            data.append('selectedvidID', vidID);
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', "getselectedvideodetails.php");
+        }
+    </script>
+</body>
+</html>
